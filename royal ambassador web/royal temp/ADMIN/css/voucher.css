@@ -1,0 +1,208 @@
+/* Inherits common styles from dashboard.css */
+
+/* Page-specific styles for Voucher Management */
+
+.voucher-toolbar {
+    /* .toolbar styles from dashboard.css or user-management.css can be base */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for more filters */
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px; /* Space between items/groups */
+}
+
+.voucher-toolbar .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between filter elements */
+    flex-wrap: wrap; /* Allow filters to wrap on smaller screens */
+}
+
+.voucher-toolbar .search-input {
+    /* Assuming .search-input is defined in dashboard.css */
+    min-width: 250px; /* Adjust width as needed */
+}
+
+.filter-select {
+    padding: 9px 12px; /* Match search input padding height */
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95em;
+    background-color: #fff;
+    height: 40px; /* Consistent height with inputs/buttons */
+    box-sizing: border-box;
+}
+.filter-select:focus {
+    border-color: #001f3f;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.2);
+}
+
+.filter-btn {
+    /* Uses .btn and .btn-secondary from dashboard.css */
+    padding: 9px 15px; /* Match input height */
+}
+.filter-btn .icon {
+    margin-right: 6px;
+}
+
+#generateVoucherBtn {
+    /* Uses .btn and .btn-primary from dashboard.css */
+    padding: 9px 18px; /* Match input height */
+}
+#generateVoucherBtn .icon {
+    margin-right: 8px;
+}
+
+/* Voucher Table Specific Styles */
+.voucher-table th:first-child, /* Checkbox column */
+.voucher-table td:first-child {
+    width: 40px; /* Narrow column for checkbox */
+    text-align: center;
+}
+.voucher-table th:first-child input[type="checkbox"],
+.voucher-table td:first-child input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.voucher-table .action-buttons .btn {
+    /* Styles for action buttons are inherited from dashboard.css */
+    /* Make them smaller if needed, e.g., for icon-only buttons */
+    padding: 5px 8px; /* Smaller padding for compact buttons */
+}
+.voucher-table .action-buttons .btn .icon {
+    margin-right: 0; /* Typically icon-only in this context */
+    font-size: 1.1em; /* Slightly larger icon if it's the only content */
+}
+
+
+/* Bulk Actions Container */
+.bulk-actions-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px; /* Space above pagination or content end */
+    padding: 15px 20px;
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+.bulk-actions-container select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9em;
+    min-width: 180px; /* Minimum width for the select dropdown */
+}
+.bulk-actions-container .apply-bulk-action-btn {
+    /* Uses .btn and .btn-secondary from dashboard.css */
+    font-size: 0.9em;
+}
+
+
+/* Pagination for vouchers - reusing .pagination from user-management.css */
+.voucher-pagination {
+    /* Styles are inherited if .pagination class is used. Add overrides if needed. */
+}
+
+
+/* Modal specific styles for Generate Vouchers form */
+/* .modal, .modal-dialog, .modal-content, etc. are defined in dashboard.css or user-management.css */
+
+#generateVoucherModal .modal-dialog {
+    max-width: 600px; /* Suitable width for this form */
+}
+
+#generateVoucherForm .form-group label {
+    /* Ensure labels are styled if not already by common form styles */
+}
+#generateVoucherForm input[type="number"],
+#generateVoucherForm input[type="text"],
+#generateVoucherForm select {
+    /* Ensure inputs are styled if not already by common form styles */
+}
+
+
+/* Responsive adjustments for voucher management page */
+@media (max-width: 992px) { /* Larger tablets / smaller desktops */
+    .voucher-toolbar {
+        flex-direction: column; /* Stack main groups */
+        align-items: stretch; /* Make groups take full width */
+    }
+    .voucher-toolbar .toolbar-left {
+        justify-content: flex-start; /* Align filters to start */
+        width: 100%;
+    }
+    #generateVoucherBtn {
+        width: 100%; /* Full width button */
+        margin-top: 10px; /* Space if stacked */
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .voucher-toolbar .toolbar-left {
+        flex-direction: column; /* Stack filter elements */
+        align-items: stretch;
+        gap: 10px;
+    }
+    .voucher-toolbar .search-input,
+    .voucher-toolbar .filter-select,
+    .voucher-toolbar .filter-btn {
+        width: 100%; /* Full width for all filter elements */
+        box-sizing: border-box;
+    }
+
+    /* Example: Hide less critical columns on smaller screens for voucher table */
+    .voucher-table th:nth-child(6), /* Expiry Date */
+    .voucher-table td:nth-child(6),
+    .voucher-table th:nth-child(7), /* Assigned To */
+    .voucher-table td:nth-child(7) {
+        display: none;
+    }
+    .bulk-actions-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .bulk-actions-container select,
+    .bulk-actions-container .apply-bulk-action-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Further hide or simplify table columns if needed */
+    .voucher-table th:nth-child(3), /* Type */
+    .voucher-table td:nth-child(3),
+    .voucher-table th:nth-child(5), /* Date Generated */
+    .voucher-table td:nth-child(5) {
+        display: none;
+    }
+
+    .voucher-table .action-buttons {
+        /* Could make buttons stack vertically or ensure enough space */
+        display: flex;
+        flex-direction: column; /* Stack buttons in actions column */
+        gap: 5px;
+    }
+    .voucher-table .action-buttons .btn {
+        width: 100%; /* Make action buttons full width of their cell part */
+        text-align: center;
+    }
+}
+```
+
+Key features of this CSS:
+- **Toolbar Styling:** Enhanced toolbar with flex-wrap for responsiveness, specific styling for filter dropdowns and buttons.
+- **Table Enhancements:** Specific width for the checkbox column and centered content. Action buttons are styled to be more compact, suitable for icon-only use.
+- **Bulk Actions:** A new section for bulk operations with a dropdown and an "Apply" button, styled for clarity.
+- **Modal Styling:** Placeholder for the "Generate Vouchers" modal, assuming it uses common modal styles but noting that its dialog might have a specific width.
+- **Responsive Design:**
+    - Toolbar items stack appropriately on smaller screens.
+    - Table columns (`Expiry Date`, `Assigned To`, `Type`, `Date Generated`) are progressively hidden on smaller devices to prevent horizontal overflow.
+    - Bulk actions container elements also stack on smaller screens.
+    - Action buttons within the table are styled to stack vertically on very small screens for better usability.
+
+This CSS builds upon the common styles in `dashboard.css` and provides the necessary specific styles for the voucher management interface. The corresponding HTML includes the structure for these elements, including the non-functional modal placeholder.

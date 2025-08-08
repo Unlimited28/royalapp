@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Management - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/notification-management.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors NG</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html" class="active"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html"><span class="icon">&#9881;</span> Settings</a></li>
+                <li><a href="../login.html" class="logout-link"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Notification Management</h1>
+                <p>Send and manage system-wide or targeted notifications.</p>
+            </div>
+            <div class="header-user-info">
+                <img src="assest/img/new8.jpg" alt="Admin Avatar" class="admin-avatar">
+                <span>Admin Name</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <section class="send-notification-section form-container">
+                <h2 class="section-title">Create New Notification</h2>
+                <form id="sendNotificationForm">
+                    <div class="form-group">
+                        <label for="notificationTitle">Notification Title</label>
+                        <input type="text" class="form-control" id="notificationTitle" name="notificationTitle" required placeholder="e.g., Upcoming System Maintenance">
+                    </div>
+                    <div class="form-group">
+                        <label for="notificationMessage">Message</label>
+                        <textarea class="form-control" id="notificationMessage" name="notificationMessage" rows="4" required placeholder="Enter the full notification message..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="notificationType">Notification Type</label>
+                            <select class="form-control" id="notificationType" name="notificationType">
+                                <option value="info">Information (Blue)</option>
+                                <option value="success">Success (Green)</option>
+                                <option value="warning">Warning (Yellow)</option>
+                                <option value="error">Error/Critical (Red)</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="notificationTarget">Target Audience</label>
+                            <select class="form-control" id="notificationTarget" name="notificationTarget">
+                                <option value="all_users">All Users</option>
+                                <option value="admins">Administrators</option>
+                                <option value="editors">Editors</option>
+                                <option value="candidates">Candidates</option>
+                                <option value="specific_users">Specific Users (Not implemented)</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <input type="checkbox" id="isDismissible" name="isDismissible" checked>
+                        <label for="isDismissible" class="inline-label">Allow users to dismiss this notification</label>
+                    </div>
+                    <div class="form-button-container">
+                        <button type="submit" class="btn btn-primary form-button">Send Notification</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="sent-notifications-section">
+                <h2 class="section-title">Sent Notifications Log</h2>
+                <div class="toolbar notifications-toolbar">
+                     <input type="text" placeholder="Search by title or message content..." class="search-input">
+                     <select id="filterNotificationType" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="info">Info</option>
+                        <option value="success">Success</option>
+                        <option value="warning">Warning</option>
+                        <option value="error">Error</option>
+                    </select>
+                    <button class="btn btn-secondary filter-btn"><span class="icon">&#128269;</span> Filter</button>
+                </div>
+
+                <ul class="notification-list">
+                    <li class="notification-item type-info">
+                        <div class="notification-icon">&#8505;</div>
+                        <div class="notification-content">
+                            <h4 class="notification-list-title">System Update Scheduled</h4>
+                            <p class="notification-list-message">A system update is scheduled for tomorrow, 10 PM UTC. Expect brief downtime.</p>
+                            <small class="notification-meta">Sent: 2023-10-25 14:30 | Target: All Users | Status: Active</small>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-secondary" title="Archive"><span class="icon">&#128450;</span> Archive</button>
+                            <button class="btn btn-sm btn-delete" title="Delete"><span class="icon">&#128465;</span> Delete</button>
+                        </div>
+                    </li>
+                    <li class="notification-item type-success">
+                        <div class="notification-icon">&#10004;</div>
+                        <div class="notification-content">
+                            <h4 class="notification-list-title">New Blog Post Published!</h4>
+                            <p class="notification-list-message">Check out our latest article on "Effective Leadership Strategies".</p>
+                            <small class="notification-meta">Sent: 2023-10-22 10:00 | Target: All Users | Status: Active</small>
+                        </div>
+                        <div class="notification-actions">
+                             <button class="btn btn-sm btn-secondary" title="Archive"><span class="icon">&#128450;</span> Archive</button>
+                            <button class="btn btn-sm btn-delete" title="Delete"><span class="icon">&#128465;</span> Delete</button>
+                        </div>
+                    </li>
+                    <li class="notification-item type-warning">
+                        <div class="notification-icon">&#9888;</div>
+                        <div class="notification-content">
+                            <h4 class="notification-list-title">Voucher Stock Low</h4>
+                            <p class="notification-list-message">The stock of unused exam vouchers is running low. Please generate more soon.</p>
+                            <small class="notification-meta">Sent: 2023-10-20 09:15 | Target: Administrators | Status: Active, Dismissed by some</small>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-secondary" title="Mark as Resolved"><span class="icon">&#10003;</span> Resolved</button>
+                            <button class="btn btn-sm btn-delete" title="Delete"><span class="icon">&#128465;</span> Delete</button>
+                        </div>
+                    </li>
+                     <li class="notification-item type-error">
+                        <div class="notification-icon">&#10060;</div>
+                        <div class="notification-content">
+                            <h4 class="notification-list-title">Exam Server Issue (Resolved)</h4>
+                            <p class="notification-list-message">We experienced a brief issue with the exam server. This has now been resolved. Apologies for any inconvenience.</p>
+                            <small class="notification-meta">Sent: 2023-10-15 11:00 | Target: Candidates | Status: Archived</small>
+                        </div>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-delete" title="Delete"><span class="icon">&#128465;</span> Delete</button>
+                        </div>
+                    </li>
+                    <!-- Add more notification items -->
+                </ul>
+                <div class="pagination notifications-pagination">
+                    <button class="btn btn-secondary" disabled>&laquo; Previous</button>
+                    <span>Page 1 of 1</span>
+                    <button class="btn btn-secondary">Next &raquo;</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

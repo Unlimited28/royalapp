@@ -1,0 +1,255 @@
+/* Inherits common styles from dashboard.css */
+
+/* Page-specific styles for Blog Management */
+
+.blog-toolbar {
+    /* .toolbar styles from dashboard.css or other specific CSS can be base */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.blog-toolbar .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.blog-toolbar .search-input {
+    min-width: 220px; /* Adjust as needed */
+}
+
+.blog-toolbar .filter-select {
+    /* Styles from voucher-management.css or dashboard.css for .filter-select */
+    min-width: 150px; /* Adjust as needed */
+}
+
+.blog-toolbar .filter-btn,
+.blog-toolbar #createNewPostBtn {
+    /* Styles from dashboard.css for .btn, .btn-secondary, .btn-primary */
+}
+.blog-toolbar #createNewPostBtn .icon,
+.blog-toolbar .filter-btn .icon {
+    margin-right: 8px;
+}
+
+/* Blog Post Card Specific Styles */
+/* .card-grid-container is defined in dashboard.css */
+.blog-posts-grid {
+    /* Specific grid settings if different from generic .card-grid-container */
+}
+
+.blog-post-card {
+    /* .card styles are inherited from dashboard.css */
+    /* Specific overrides for blog post cards */
+}
+
+.blog-post-card .card-image-placeholder {
+    /* Styles from dashboard.css */
+    height: 200px; /* Standard height for blog post images */
+    font-size: 0.9em;
+}
+
+.blog-post-card .card-content {
+    /* Styles from dashboard.css */
+    position: relative; /* For positioning post-status */
+    padding-bottom: 15px; /* Adjust padding if needed */
+}
+
+.blog-post-card .card-title {
+    /* Styles from dashboard.css */
+    font-size: 1.3em; /* Slightly larger for blog titles */
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.blog-post-card .card-meta {
+    /* Styles from dashboard.css */
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.blog-post-card .card-meta .post-category {
+    font-weight: 600;
+    color: #001f3f; /* Navy Blue */
+    background-color: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.blog-post-card .card-meta .post-date,
+.blog-post-card .card-meta .post-author {
+    /* Additional specific styling if needed */
+}
+
+.post-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px; /* Space below status */
+    color: #fff; /* Default, overridden by specific statuses */
+}
+.post-status.status-published {
+    background-color: #28a745; /* Green */
+}
+.post-status.status-draft {
+    background-color: #ffc107; /* Yellow */
+    color: #333; /* Dark text for yellow */
+}
+.post-status.status-archived {
+    background-color: #6c757d; /* Grey */
+}
+/* Ensure these don't clash with .status-badge if used differently */
+
+
+.blog-post-card .card-description {
+    /* Styles from dashboard.css */
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.blog-post-card .card-actions {
+    /* Styles from dashboard.css */
+    /* Specific adjustments if needed */
+}
+.blog-post-card .card-actions .btn .icon {
+    margin-right: 6px;
+}
+.blog-post-card .card-actions .btn.disabled { /* Style for disabled button */
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #adb5bd; /* Lighter grey */
+    border-color: #adb5bd;
+}
+.blog-post-card .card-actions .btn.disabled:hover {
+    background-color: #adb5bd; /* No color change on hover */
+    color: #ffffff;
+}
+
+
+/* Pagination for blog posts - reusing .pagination from user-management.css */
+.blog-pagination {
+    /* Styles are inherited if .pagination class is used. */
+}
+
+
+/* Modal specific styles for Create/Edit Blog Post form */
+#blogPostModal .modal-dialog.modal-lg { /* Bootstrap class name for large modal */
+    max-width: 800px; /* Wider modal for rich text editor / more fields */
+}
+@media (min-width: 992px) { /* Corresponds to Bootstrap's -lg breakpoint */
+    #blogPostModal .modal-dialog.modal-lg {
+        max-width: 800px;
+    }
+}
+
+
+#blogPostForm #postContent {
+    min-height: 200px; /* Taller textarea for content */
+}
+
+#blogPostForm .form-row { /* From exam-management.css or define here */
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+#blogPostForm .form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+#blogPostForm .form-text.text-muted { /* Helper text style */
+    font-size: 0.85em;
+    color: #6c757d;
+}
+
+
+/* Responsive adjustments for blog management page */
+@media (max-width: 992px) { /* Larger tablets / smaller desktops */
+    .blog-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .blog-toolbar .toolbar-left {
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .blog-toolbar #createNewPostBtn {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-toolbar .toolbar-left {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .blog-toolbar .search-input,
+    .blog-toolbar .filter-select,
+    .blog-toolbar .filter-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* Card grid columns will adjust based on .card-grid-container styles in dashboard.css */
+    /* Usually to 1 or 2 columns on tablet */
+}
+
+@media (max-width: 600px) {
+    .blog-post-card .card-title {
+        font-size: 1.15em; /* Adjust title size for mobile */
+    }
+    .blog-post-card .card-meta {
+        font-size: 0.75em; /* Smaller meta text */
+    }
+    .post-status {
+        font-size: 0.65em; /* Smaller status badge */
+        padding: 3px 8px;
+    }
+    .blog-post-card .card-actions {
+        flex-direction: column; /* Stack action buttons */
+        gap: 8px;
+    }
+    .blog-post-card .card-actions .btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    #blogPostForm .form-row {
+        flex-direction: column; /* Stack form row inputs in modal */
+        gap: 0;
+    }
+    #blogPostForm .form-row .form-group {
+        margin-bottom: 15px;
+    }
+    #blogPostModal .modal-dialog.modal-lg {
+        margin: 10px; /* Full width modal on small screens */
+        max-width: calc(100% - 20px);
+    }
+}
+```
+
+This CSS for `blog-management.css`:
+- Styles the toolbar with search and filter options, similar to previous pages but adapted for blog content.
+- Enhances the blog post cards:
+    - Defines a standard height for the featured image placeholder.
+    - Styles metadata like category, date, and author.
+    - Adds distinct status indicators (`Published`, `Draft`, `Archived`) within the card content.
+    - Includes a specific style for disabled buttons in card actions (e.g., Edit button for an archived post).
+- Assumes pagination reuses existing styles.
+- Styles the "Create/Edit Blog Post" modal:
+    - Makes the modal dialog larger (`modal-lg`) to accommodate more fields and potentially a rich text editor.
+    - Provides a taller textarea for the post content.
+    - Styles helper text for file inputs.
+- Includes responsive adjustments for the toolbar, blog cards (title, meta, status), card actions, and the modal form elements for various screen sizes.
+
+The HTML structure in `blog-management.html` reflects these elements, using the card layout for posts and including the structural placeholder for the larger modal. Common styles from `dashboard.css` are leveraged throughout.

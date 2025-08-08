@@ -1,0 +1,269 @@
+/* Inherits common styles from dashboard.css */
+
+/* Page-specific styles for Notification Management */
+
+/* Send Notification Section */
+.send-notification-section {
+    /* .form-container styles from dashboard.css */
+    margin-bottom: 40px;
+}
+.send-notification-section .section-title {
+    /* .section-title styles from ads-management.css or define here */
+    font-size: 1.5em;
+    color: #001f3f;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFD700;
+}
+
+#sendNotificationForm .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 0;
+}
+#sendNotificationForm .form-row .form-group {
+    flex: 1;
+    margin-bottom: 15px;
+}
+#sendNotificationForm .form-group label.inline-label { /* For checkbox label */
+    font-weight: normal; /* Standard weight for checkbox label */
+    margin-left: 8px;
+    color: #333; /* Standard text color */
+    font-size: 0.95em;
+}
+#sendNotificationForm input[type="checkbox"] {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+
+/* Sent Notifications Log Section */
+.sent-notifications-section .section-title {
+    /* .section-title styles */
+    font-size: 1.5em;
+    color: #001f3f;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFD700;
+}
+
+.notifications-toolbar {
+    /* .toolbar styles from dashboard.css or other specific CSS */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+.notifications-toolbar .search-input,
+.notifications-toolbar .filter-select {
+    /* Styles from dashboard.css or other specific CSS */
+    margin-right: 10px;
+}
+
+/* Notification List Styles */
+.notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start; /* Align icon and content to the top */
+    gap: 20px;
+    border-left: 5px solid transparent; /* For type indication */
+}
+
+.notification-icon {
+    font-size: 1.8em; /* Icon size */
+    width: 40px; /* Fixed width for icon container */
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Icon color */
+}
+
+.notification-content {
+    flex-grow: 1;
+}
+
+.notification-list-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: #001f3f; /* Navy Blue */
+    font-weight: 600;
+}
+
+.notification-list-message {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #333;
+    line-height: 1.5;
+}
+
+.notification-meta {
+    font-size: 0.8em;
+    color: #777;
+    display: block; /* Ensure it takes its own line */
+}
+
+.notification-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 8px;
+    align-items: flex-end; /* Align buttons to the right if container allows */
+    min-width: 100px; /* Ensure some space for buttons */
+}
+.notification-actions .btn-sm { /* Custom class for smaller buttons in list view */
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+.notification-actions .btn .icon {
+    margin-right: 4px;
+}
+
+
+/* Notification Item Types */
+.notification-item.type-info {
+    border-left-color: #17a2b8; /* Teal/Info blue */
+}
+.notification-item.type-info .notification-icon {
+    background-color: #17a2b8;
+}
+
+.notification-item.type-success {
+    border-left-color: #28a745; /* Green */
+}
+.notification-item.type-success .notification-icon {
+    background-color: #28a745;
+}
+
+.notification-item.type-warning {
+    border-left-color: #ffc107; /* Yellow */
+}
+.notification-item.type-warning .notification-icon {
+    background-color: #ffc107;
+    color: #333; /* Dark icon for yellow background */
+}
+
+.notification-item.type-error {
+    border-left-color: #dc3545; /* Red */
+}
+.notification-item.type-error .notification-icon {
+    background-color: #dc3545;
+}
+
+
+/* Pagination for notifications */
+.notifications-pagination {
+    /* .pagination styles from dashboard.css */
+    margin-top: 25px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    #sendNotificationForm .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    #sendNotificationForm .form-row .form-group {
+        margin-bottom: 15px;
+    }
+    .notifications-toolbar {
+        justify-content: space-between;
+    }
+    .notifications-toolbar .search-input {
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .notifications-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .notifications-toolbar .search-input,
+    .notifications-toolbar .filter-select,
+    .notifications-toolbar .filter-btn {
+        width: 100%;
+        box-sizing: border-box;
+        margin-right: 0;
+    }
+
+    .notification-item {
+        flex-direction: column; /* Stack icon, content, actions vertically */
+        align-items: stretch; /* Full width for children */
+        gap: 15px;
+    }
+    .notification-icon {
+        align-self: flex-start; /* Align icon to the start when stacked */
+        margin-bottom: 5px; /* Space below icon */
+    }
+    .notification-actions {
+        flex-direction: row; /* Horizontal buttons on smaller screens if stacked */
+        justify-content: flex-end; /* Align to right */
+        width: 100%;
+    }
+    .notification-actions .btn-sm {
+        flex-grow: 1; /* Make buttons take equal space if needed */
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 1.3em;
+    }
+    .notification-list-title {
+        font-size: 1.1em;
+    }
+    .notification-list-message {
+        font-size: 0.9em;
+    }
+    .notification-actions {
+        /* Already row from tablet, can adjust further if needed */
+    }
+    .notification-actions .btn-sm .icon {
+        margin-right: 0; /* Icon only for very small buttons */
+    }
+     .notification-actions .btn-sm span:not(.icon) {
+        display: none; /* Hide text */
+    }
+    .notification-actions .btn-sm {
+        padding: 6px 8px; /* Adjust padding for icon-only */
+    }
+}
+```
+
+Key CSS elements in `notification-management.css`:
+- **Send Notification Form:** Utilizes common form styles, with specific layout for form rows and inline checkbox labels.
+- **Sent Notifications Log:**
+    - Includes a toolbar for filtering notifications.
+    - Styles a list of notifications (`.notification-list` and `.notification-item`).
+    - Each notification item has a distinct colored left border and icon background based on its type (Info, Success, Warning, Error).
+    - Notification content (title, message, metadata) is styled for readability.
+    - Action buttons within each notification item are styled to be compact and stack vertically by default.
+- **Responsive Design:**
+    - The send notification form rows stack on smaller screens.
+    - The notifications toolbar elements stack.
+    - Notification items themselves stack their main components (icon, content, actions) on smaller tablet sizes.
+    - Action buttons within notification items switch to a horizontal layout on tablets (when the item itself is stacked) and can be made icon-only on very small screens.
+
+The HTML (`notification-management.html`) provides the structure for the form to send notifications and the list to display sent notifications, with appropriate classes for styling. Pagination is included, reusing existing styles.

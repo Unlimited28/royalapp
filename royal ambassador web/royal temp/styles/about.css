@@ -1,0 +1,137 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  background: #ffffff;
+  color: #00205b;
+}
+
+/* Containers */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* Header */
+.hero {
+  background: navy;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  color: gold;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Banner Image */
+.image-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* About Section */
+.about h2,
+.mission-vision h2,
+.director-message h2,
+.leaders h2 {
+  font-size: 2em;
+  color: navy;
+  margin-bottom: 20px;
+  border-left: 5px solid gold;
+  padding-left: 15px;
+}
+
+.about p,
+.director-message p {
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+/* Mission and Vision */
+.mission-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mission,
+.vision {
+  background: #f9f9f9;
+  padding: 20px;
+  border-left: 5px solid gold;
+}
+
+/* Director Message */
+.director-message {
+  background: #f1f5fa;
+  padding: 25px;
+  border-left: 5px solid navy;
+}
+
+/* Leaders */
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.leader-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 20px;
+  transition: 0.3s ease;
+  border-radius: 10px;
+}
+
+.leader-card:hover {
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+  border-color: gold;
+}
+
+.leader-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid gold;
+}
+
+.leader-card h3 {
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  color: navy;
+}
+
+.leader-card p {
+  font-size: 0.95em;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  background: navy;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9em;
+}

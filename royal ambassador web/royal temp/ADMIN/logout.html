@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/logout.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors NG</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html"><span class="icon">&#9881;</span> Settings</a></li>
+                <!-- For logout.html, the "Logout" link itself might not be 'active' in the traditional sense,
+                     or the sidebar might be simplified. For consistency, we'll mark it active here. -->
+                <li><a href="../login.html" class="logout-link active"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Logout Confirmation</h1>
+                <p>You have been logged out of the admin panel.</p>
+            </div>
+            <div class="header-user-info">
+                <!-- Avatar might be hidden or generic on logout screen -->
+                <img src="assest/img/new8.jpg" alt="Admin Avatar" class="admin-avatar" style="opacity: 0.5;"> 
+                <span>Admin</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="logout-message-container">
+                <div class="logout-icon">&#128682;</div>
+                <h2>You have been successfully logged out.</h2>
+                <p>Thank you for using the Royal Ambassadors Admin Panel.</p>
+                <a href="../login.html" class="btn btn-primary login-again-btn">
+                    <span class="icon">&#128279;</span> Login Again
+                </a>
+                <a href="#" class="btn btn-secondary back-to-website-btn">
+                    <span class="icon">&#127968;</span> Go to Main Website
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

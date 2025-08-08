@@ -1,0 +1,139 @@
+/* Inherits common styles from dashboard.css */
+
+/* Page-specific styles for Logout page */
+
+.main-content .header {
+    /* Optional: Slightly different header style for logout page if needed */
+    /* e.g., less prominent or different background */
+}
+
+.content-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    min-height: calc(100vh - 70px - 60px); /* Full height minus header and potential footer, adjust as needed */
+    /* If sidebar footer is not part of main-content height, then (100vh - header height) */
+}
+
+.logout-message-container {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.logout-icon {
+    font-size: 4em; /* Large icon */
+    color: #001f3f; /* Navy Blue */
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.logout-message-container h2 {
+    font-size: 1.8em;
+    color: #001f3f; /* Navy Blue */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.logout-message-container p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.logout-message-container .btn {
+    /* .btn styles from dashboard.css are inherited */
+    padding: 12px 25px;
+    font-size: 1em;
+    margin: 10px 5px; /* Space around buttons */
+    min-width: 200px; /* Minimum width for buttons */
+}
+.logout-message-container .btn .icon {
+    margin-right: 8px;
+}
+
+.login-again-btn {
+    /* .btn-primary styles from dashboard.css */
+}
+.login-again-btn:hover {
+    /* .btn-primary:hover styles from dashboard.css */
+}
+
+.back-to-website-btn {
+    /* .btn-secondary styles from dashboard.css */
+    background-color: #6c757d; /* Grey */
+    color: #ffffff;
+}
+.back-to-website-btn:hover {
+    background-color: #5a6268; /* Darker grey */
+}
+
+
+/* Responsive adjustments for logout page */
+@media (max-width: 768px) {
+    .content-area {
+        padding: 20px; /* Add padding for smaller screens */
+        justify-content: flex-start; /* Align to top on smaller screens if preferred */
+        padding-top: 50px;
+    }
+    .logout-message-container {
+        padding: 30px 25px;
+    }
+    .logout-message-container h2 {
+        font-size: 1.6em;
+    }
+    .logout-message-container p {
+        font-size: 1em;
+    }
+    .logout-message-container .btn {
+        width: 100%; /* Stack buttons */
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Sidebar might be handled differently on mobile (e.g., hidden or top bar)
+       If sidebar is still present and taking space, content area adjustments might be needed.
+       Assuming dashboard.css handles mobile sidebar state.
+    */
+    .logout-icon {
+        font-size: 3em;
+    }
+    .logout-message-container h2 {
+        font-size: 1.4em;
+    }
+    .logout-message-container p {
+        font-size: 0.95em;
+    }
+}
+
+/*
+  Note on active sidebar link for logout.html:
+  Usually, a "Logout" action redirects immediately. If it's a page,
+  the "Logout" link in the sidebar being 'active' is a bit unusual.
+  Alternatively, no link could be active, or the sidebar could be visually distinct
+  (e.g., all links greyed out except for a "Login" link if the session is truly ended).
+  The current HTML marks it active for consistency with other pages' approach.
+*/
+```
+
+This CSS for `logout.css`:
+- **Layout:** Centers the logout confirmation message box both vertically and horizontally within the content area.
+- **Message Container:** Styles the box containing the logout message, icon, and action buttons, giving it a clean, card-like appearance.
+- **Icon and Text:** Styles the large logout icon and the confirmation text.
+- **Action Buttons:** Styles the "Login Again" and "Go to Main Website" buttons, ensuring they are prominent and appropriately spaced. It assumes base button styles from `dashboard.css`.
+- **Responsive Design:**
+    - On smaller screens, the content area gets padding, and the vertical alignment might shift to `flex-start` if preferred.
+    - The message container's padding is reduced.
+    - Text and icon sizes are adjusted.
+    - Action buttons stack vertically to fit smaller viewports.
+
+The HTML (`logout.html`) includes the standard sidebar and header (though the header's user info might be shown as faded or generic). The main content area is dedicated to the logout confirmation message. The "Logout" link in the sidebar is marked as active for this page, though this behavior could be debated in a real application where logout is typically an immediate action. The "Go to Main Website" button currently has `href="#"` as a placeholder.

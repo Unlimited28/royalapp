@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/settings.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors NG</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html" class="active"><span class="icon">&#9881;</span> Settings</a></li>
+                <li><a href="../login.html" class="logout-link"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Admin Settings</h1>
+                <p>Manage your profile and application settings.</p>
+            </div>
+            <div class="header-user-info">
+                <img src="assest/img/new8.jpg" alt="Admin Avatar" class="admin-avatar" id="currentAdminAvatar">
+                <span>Admin Name</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="settings-container">
+                <div class="settings-tabs">
+                    <button class="tab-link active" data-tab="profileSettings">Profile Settings</button>
+                    <button class="tab-link" data-tab="applicationSettings">Application Settings</button>
+                    <button class="tab-link" data-tab="securitySettings">Security</button>
+                </div>
+
+                <div id="profileSettings" class="tab-content active form-container">
+                    <h2 class="section-title">Edit Your Profile</h2>
+                    <form id="adminProfileForm">
+                        <div class="profile-avatar-section">
+                            <img src="placeholder-avatar.png" alt="Current Avatar" class="profile-avatar-preview" id="profileAvatarPreview">
+                            <div class="form-group">
+                                <label for="adminAvatarUpload">Change Avatar</label>
+                                <input type="file" class="form-control" id="adminAvatarUpload" name="adminAvatarUpload" accept="image/*">
+                                <small>Recommended: Square image, max 2MB.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adminUsername">Username</label>
+                            <input type="text" class="form-control" id="adminUsername" name="adminUsername" value="current_admin_username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminEmail">Email Address</label>
+                            <input type="email" class="form-control" id="adminEmail" name="adminEmail" value="admin@example.com" required>
+                        </div>
+                        
+                        <h3 class="subsection-title">Change Password</h3>
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" name="currentPassword" placeholder="Enter current password to change">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm new password">
+                            </div>
+                        </div>
+                        <div class="form-button-container">
+                            <button type="submit" class="btn btn-primary form-button">Save Profile Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="applicationSettings" class="tab-content form-container">
+                    <h2 class="section-title">Application Settings</h2>
+                    <form id="appSettingsForm">
+                        <div class="form-group">
+                            <label for="appName">Application Name</label>
+                            <input type="text" class="form-control" id="appName" name="appName" value="Royal Ambassadors Admin Panel">
+                        </div>
+                        <div class="form-group">
+                            <label for="appLogoUpload">Application Logo</label>
+                            <div class="app-logo-preview-container">
+                                <img src="placeholder-logo-sidebar.png" alt="Current App Logo" id="appLogoPreview" class="app-logo-preview">
+                                <input type="file" class="form-control" id="appLogoUpload" name="appLogoUpload" accept="image/png, image/svg+xml">
+                            </div>
+                            <small>Recommended: PNG or SVG, transparent background.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="defaultEmail">Default 'From' Email for Notifications</label>
+                            <input type="email" class="form-control" id="defaultEmail" name="defaultEmail" value="noreply@royalambassadors.org.ng">
+                        </div>
+                        <div class="form-group">
+                            <label for="maintenanceMode">Maintenance Mode</label>
+                            <select class="form-control" id="maintenanceMode" name="maintenanceMode">
+                                <option value="off" selected>Off - Application Live</option>
+                                <option value="on">On - Show Maintenance Page</option>
+                            </select>
+                        </div>
+                        <div class="form-button-container">
+                            <button type="submit" class="btn btn-primary form-button">Save Application Settings</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="securitySettings" class="tab-content form-container">
+                    <h2 class="section-title">Security Settings</h2>
+                    <form id="securitySettingsForm">
+                        <div class="form-group">
+                            <label for="twoFactorAuth">Two-Factor Authentication (2FA)</label>
+                            <select class="form-control" id="twoFactorAuth" name="twoFactorAuth">
+                                <option value="disabled" selected>Disabled</option>
+                                <option value="enabled_email">Enabled (Via Email)</option>
+                                <option value="enabled_app">Enabled (Via Authenticator App)</option>
+                            </select>
+                            <small>Changing this setting may require re-authentication.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionTimeout">Session Timeout (minutes)</label>
+                            <input type="number" class="form-control" id="sessionTimeout" name="sessionTimeout" value="30" min="5" max="120">
+                            <small>Users will be logged out after this period of inactivity.</small>
+                        </div>
+                         <div class="form-group">
+                            <h3 class="subsection-title">Allowed IP Addresses for Admin Access (Optional)</h3>
+                            <textarea class="form-control" id="allowedIPs" name="allowedIPs" rows="3" placeholder="Enter one IP address per line. Leave blank to allow all."></textarea>
+                            <small>Use with caution. Incorrect configuration can lock you out.</small>
+                        </div>
+                        <div class="form-button-container">
+                            <button type="submit" class="btn btn-primary form-button">Save Security Settings</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <!-- Basic JS for Tab functionality (for demonstration of concept) -->
+    <!-- In a real app, this would be in an external JS file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.settings-tabs .tab-link');
+            const tabContents = document.querySelectorAll('.settings-container .tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const targetContent = document.getElementById(this.dataset.tab);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

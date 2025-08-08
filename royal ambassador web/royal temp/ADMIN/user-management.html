@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/user-management.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors NG</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html" class="active"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html"><span class="icon">&#9881;</span> Settings</a></li>
+                <li><a href="../login.html" class="logout-link"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>User Management</h1>
+                <p>Manage all registered users.</p>
+            </div>
+            <div class="header-user-info">
+                <img src="placeholder-avatar.png" alt="Admin Avatar" class="admin-avatar">
+                <span>Admin Name</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="toolbar">
+                <input type="text" placeholder="Search users by name or email..." class="search-input">
+                <button class="btn btn-primary add-user-btn">Add New User</button>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Date Registered</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>USR001</td>
+                            <td>John Doe</td>
+                            <td>john.doe@example.com</td>
+                            <td>Administrator</td>
+                            <td>2023-01-15</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td class="action-buttons">
+                                <button class="btn btn-edit" title="Edit User"><span class="icon">&#9998;</span> Edit</button>
+                                <button class="btn btn-delete" title="Delete User"><span class="icon">&#128465;</span> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>USR002</td>
+                            <td>Jane Smith</td>
+                            <td>jane.smith@example.com</td>
+                            <td>Editor</td>
+                            <td>2023-02-20</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td class="action-buttons">
+                                <button class="btn btn-edit" title="Edit User"><span class="icon">&#9998;</span> Edit</button>
+                                <button class="btn btn-delete" title="Delete User"><span class="icon">&#128465;</span> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>USR003</td>
+                            <td>Mike Brown</td>
+                            <td>mike.brown@example.com</td>
+                            <td>Subscriber</td>
+                            <td>2023-03-10</td>
+                            <td><span class="status-badge status-inactive">Inactive</span></td>
+                            <td class="action-buttons">
+                                <button class="btn btn-edit" title="Edit User"><span class="icon">&#9998;</span> Edit</button>
+                                <button class="btn btn-delete" title="Delete User"><span class="icon">&#128465;</span> Delete</button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>USR004</td>
+                            <td>Sarah Wilson</td>
+                            <td>sarah.wilson@example.com</td>
+                            <td>Candidate</td>
+                            <td>2023-04-05</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td class="action-buttons">
+                                <button class="btn btn-edit" title="Edit User"><span class="icon">&#9998;</span> Edit</button>
+                                <button class="btn btn-delete" title="Delete User"><span class="icon">&#128465;</span> Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>USR005</td>
+                            <td>David Lee</td>
+                            <td>david.lee@example.com</td>
+                            <td>Chapter Admin</td>
+                            <td>2023-05-12</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                            <td class="action-buttons">
+                                <button class="btn btn-edit" title="Edit User"><span class="icon">&#9998;</span> Edit</button>
+                                <button class="btn btn-delete" title="Delete User"><span class="icon">&#128465;</span> Delete</button>
+                            </td>
+                        </tr>
+                        <!-- Add more placeholder rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button class="btn btn-secondary" disabled>&laquo; Previous</button>
+                <span>Page 1 of 10</span>
+                <button class="btn btn-secondary">Next &raquo;</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

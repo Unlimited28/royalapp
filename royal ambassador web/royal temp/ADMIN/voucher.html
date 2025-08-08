@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voucher Management - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/voucher-management.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors NG</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html" class="active"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html"><span class="icon">&#9881;</span> Settings</a></li>
+                <li><a href="../login.html" class="logout-link"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Voucher Management</h1>
+                <p>Generate, track, and manage exam/access vouchers.</p>
+            </div>
+            <div class="header-user-info">
+                <img src="assest/img/new8.jpg" alt="Admin Avatar" class="admin-avatar">
+                <span>Admin Name</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="toolbar voucher-toolbar">
+                <div class="toolbar-left">
+                    <input type="text" placeholder="Search by voucher code or user..." class="search-input">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="used">Used</option>
+                        <option value="unused">Unused</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                    <button class="btn btn-secondary filter-btn"><span class="icon">&#128269;</span> Filter</button>
+                </div>
+                <button class="btn btn-primary" id="generateVoucherBtn">
+                    <span class="icon">&#10010;</span> Generate New Vouchers
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table voucher-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAllVouchers"></th>
+                            <th>Voucher Code</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Date Generated</th>
+                            <th>Expiry Date</th>
+                            <th>Assigned To</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="voucher-checkbox"></td>
+                            <td>EXM2023-A001-XYZ</td>
+                            <td>Exam Access</td>
+                            <td><span class="status-badge status-used">Used</span></td>
+                            <td>2023-07-01</td>
+                            <td>2023-09-01</td>
+                            <td>John Doe (USR001)</td>
+                            <td class="action-buttons">
+                                <button class="btn btn-view" title="View Details"><span class="icon">&#128065;</span></button>
+                                <button class="btn btn-delete" title="Delete Voucher"><span class="icon">&#128465;</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="voucher-checkbox"></td>
+                            <td>REG2023-B002-PQR</td>
+                            <td>Registration</td>
+                            <td><span class="status-badge status-unused">Unused</span></td>
+                            <td>2023-08-10</td>
+                            <td>2023-11-10</td>
+                            <td>N/A</td>
+                            <td class="action-buttons">
+                                <button class="btn btn-view" title="View Details"><span class="icon">&#128065;</span></button>
+                                <button class="btn btn-edit" title="Edit Voucher"><span class="icon">&#9998;</span></button>
+                                <button class="btn btn-delete" title="Delete Voucher"><span class="icon">&#128465;</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="voucher-checkbox"></td>
+                            <td>EXM2023-C003-LMN</td>
+                            <td>Exam Access</td>
+                            <td><span class="status-badge status-inactive">Expired</span></td> <!-- Assuming inactive is for expired -->
+                            <td>2023-05-01</td>
+                            <td>2023-07-01</td>
+                            <td>N/A</td>
+                            <td class="action-buttons">
+                                <button class="btn btn-view" title="View Details"><span class="icon">&#128065;</span></button>
+                                <button class="btn btn-delete" title="Delete Voucher"><span class="icon">&#128465;</span></button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td><input type="checkbox" class="voucher-checkbox"></td>
+                            <td>MAT2023-D004-IJK</td>
+                            <td>Material Access</td>
+                            <td><span class="status-badge status-used">Used</span></td>
+                            <td>2023-08-15</td>
+                            <td>2024-08-15</td>
+                            <td>Jane Smith (USR002)</td>
+                            <td class="action-buttons">
+                                <button class="btn btn-view" title="View Details"><span class="icon">&#128065;</span></button>
+                                <button class="btn btn-delete" title="Delete Voucher"><span class="icon">&#128465;</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="voucher-checkbox"></td>
+                            <td>REG2023-E005-EFG</td>
+                            <td>Registration</td>
+                            <td><span class="status-badge status-unused">Unused</span></td>
+                            <td>2023-09-01</td>
+                            <td>2023-12-01</td>
+                            <td>N/A</td>
+                             <td class="action-buttons">
+                                <button class="btn btn-view" title="View Details"><span class="icon">&#128065;</span></button>
+                                <button class="btn btn-edit" title="Edit Voucher"><span class="icon">&#9998;</span></button>
+                                <button class="btn btn-delete" title="Delete Voucher"><span class="icon">&#128465;</span></button>
+                            </td>
+                        </tr>
+                        <!-- Add more placeholder rows -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="bulk-actions-container">
+                <select id="bulkActionSelect">
+                    <option value="">Bulk Actions...</option>
+                    <option value="delete">Delete Selected</option>
+                    <option value="export">Export Selected</option>
+                    <option value="mark_unused">Mark as Unused</option>
+                </select>
+                <button class="btn btn-secondary apply-bulk-action-btn">Apply</button>
+            </div>
+            <div class="pagination voucher-pagination">
+                <button class="btn btn-secondary" disabled>&laquo; Previous</button>
+                <span>Page 1 of 20</span>
+                <button class="btn btn-secondary">Next &raquo;</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Generate Vouchers (Structure only) -->
+    <div id="generateVoucherModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Generate New Vouchers</h4>
+                    <button type="button" class="close-button" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="generateVoucherForm">
+                        <div class="form-group">
+                            <label for="voucherQuantity">Number of Vouchers</label>
+                            <input type="number" class="form-control" id="voucherQuantity" name="voucherQuantity" min="1" max="1000" value="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="voucherType">Voucher Type</label>
+                            <select class="form-control" id="voucherType" name="voucherType">
+                                <option value="exam_access">Exam Access</option>
+                                <option value="registration">Registration</option>
+                                <option value="material_access">Material Access</option>
+                                <option value="general_purpose">General Purpose</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="voucherPrefix">Prefix (optional)</label>
+                            <input type="text" class="form-control" id="voucherPrefix" name="voucherPrefix" placeholder="e.g., EXM2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="voucherLength">Code Length (excluding prefix)</label>
+                            <input type="number" class="form-control" id="voucherLength" name="voucherLength" min="6" max="16" value="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryDuration">Expiry Duration (e.g., 30d, 3m, 1y)</label>
+                            <input type="text" class="form-control" id="expiryDuration" name="expiryDuration" placeholder="e.g., 90d for 90 days">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" form="generateVoucherForm" class="btn btn-primary">Generate Vouchers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

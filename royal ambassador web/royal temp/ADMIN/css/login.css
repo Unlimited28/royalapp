@@ -1,0 +1,116 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef; /* Light grey background for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-header .logo {
+    width: 80px; /* Adjust as needed */
+    height: 80px; /* Adjust as needed */
+    margin-bottom: 15px;
+    background-color: #001f3f; /* Placeholder background */
+    border-radius: 50%; /* If the logo is circular */
+    padding: 5px; /* If the logo needs some space */
+    display: inline-block; /* To center it if text-align center is on parent */
+}
+
+.login-header h2 {
+    color: #001f3f; /* Navy Blue */
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.login-header p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #001f3f; /* Navy Blue */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    border-color: #001f3f; /* Navy Blue */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.25);
+}
+
+.login-button {
+    background-color: #001f3f; /* Navy Blue */
+    color: #ffffff; /* White */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #FFD700; /* Gold */
+    color: #001f3f; /* Navy Blue for text on gold hover */
+}
+
+.login-footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 25px;
+    }
+
+    .login-header h2 {
+        font-size: 20px;
+    }
+
+    .login-header p {
+        font-size: 12px;
+    }
+}

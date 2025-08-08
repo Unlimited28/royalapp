@@ -1,0 +1,108 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.blog-header {
+  background-color: #0b1e39;
+  color: white;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.brand-text h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.welcome-text {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.welcome-text em {
+  font-size: 1.2rem;
+  color: #ffdf6f;
+}
+
+.intro {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+/* Blog Grid */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.blog-card h2 {
+  margin: 1rem;
+  font-size: 1.4rem;
+  color: #0b1e39;
+}
+
+.blog-card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.read-more {
+  display: inline-block;
+  margin: 0 1rem 1.5rem;
+  background-color: #0b1e39;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.read-more:hover {
+  background-color: #082346;
+}

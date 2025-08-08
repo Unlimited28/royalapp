@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ads & Promotions - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/ads-management.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors NG</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html" class="active"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html"><span class="icon">&#9881;</span> Settings</a></li>
+                <li><a href="../login.html" class="logout-link"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Ads & Promotions Management</h1>
+                <p>Manage promotional banners and advertisements.</p>
+            </div>
+            <div class="header-user-info">
+                <img src="assest/img/new8.jpg" alt="Admin Avatar" class="admin-avatar">
+                <span>Admin Name</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <section class="upload-banner-section form-container">
+                <h2 class="section-title">Upload New Banner/Ad</h2>
+                <form id="uploadAdForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="adTitle">Ad Title/Campaign Name</label>
+                            <input type="text" class="form-control" id="adTitle" name="adTitle" required placeholder="e.g., Annual Conference Promotion">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="adPlacement">Placement Area</label>
+                            <select class="form-control" id="adPlacement" name="adPlacement">
+                                <option value="homepage_banner">Homepage Banner</option>
+                                <option value="sidebar_ad">Sidebar Ad</option>
+                                <option value="popup_modal">Popup Modal</option>
+                                <option value="event_page_banner">Event Page Banner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="adImage">Banner Image</label>
+                        <input type="file" class="form-control" id="adImage" name="adImage" accept="image/*" required>
+                        <small class="form-text text-muted">Recommended dimensions vary by placement. E.g., Homepage Banner: 1200x300px.</small>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="adLink">Link URL (optional)</label>
+                            <input type="url" class="form-control" id="adLink" name="adLink" placeholder="https://example.com/promo-page">
+                        </div>
+                         <div class="form-group col-md-6">
+                            <label for="adStatus">Initial Status</label>
+                            <select class="form-control" id="adStatus" name="adStatus">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive (Draft)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="adDisplayDates">Display Dates (optional)</label>
+                        <div class="date-range-group">
+                            <input type="date" class="form-control" id="adStartDate" name="adStartDate" title="Start Date">
+                            <span>to</span>
+                            <input type="date" class="form-control" id="adEndDate" name="adEndDate" title="End Date">
+                        </div>
+                    </div>
+                    <div class="form-button-container">
+                        <button type="submit" class="btn btn-primary form-button">Upload & Save Ad</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="current-ads-section">
+                <h2 class="section-title">Current Banners & Ads</h2>
+                 <div class="toolbar ads-toolbar">
+                     <input type="text" placeholder="Search ads by title or placement..." class="search-input">
+                     <select id="filterAdStatus" class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="scheduled">Scheduled</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                    <button class="btn btn-secondary filter-btn"><span class="icon">&#128269;</span> Filter Ads</button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table ads-table">
+                        <thead>
+                            <tr>
+                                <th>Preview</th>
+                                <th>Title/Campaign</th>
+                                <th>Placement</th>
+                                <th>Status</th>
+                                <th>Display Dates</th>
+                                <th>Clicks/Views</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="placeholder-ad-thumb1.png" alt="Ad Thumbnail" class="ad-thumbnail"></td>
+                                <td>Annual Conference 2024</td>
+                                <td>Homepage Banner</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>2023-11-01 to 2023-12-31</td>
+                                <td>1500 / 25000</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-edit" title="Edit Ad"><span class="icon">&#9998;</span></button>
+                                    <button class="btn btn-secondary btn-toggle-status" title="Toggle Status"><span class="icon">&#128280;</span></button>
+                                    <button class="btn btn-delete" title="Delete Ad"><span class="icon">&#128465;</span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="placeholder-ad-thumb2.png" alt="Ad Thumbnail" class="ad-thumbnail"></td>
+                                <td>Leadership Workshop Ad</td>
+                                <td>Sidebar Ad</td>
+                                <td><span class="status-badge status-inactive">Inactive</span></td>
+                                <td>N/A</td>
+                                <td>50 / 1200</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-edit" title="Edit Ad"><span class="icon">&#9998;</span></button>
+                                    <button class="btn btn-secondary btn-toggle-status" title="Toggle Status"><span class="icon">&#128280;</span></button>
+                                    <button class="btn btn-delete" title="Delete Ad"><span class="icon">&#128465;</span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="placeholder-ad-thumb3.png" alt="Ad Thumbnail" class="ad-thumbnail"></td>
+                                <td>New Member Drive</td>
+                                <td>Popup Modal</td>
+                                <td><span class="status-badge status-pending">Scheduled</span></td> <!-- Assuming pending for scheduled -->
+                                <td>2024-01-01 to 2024-01-31</td>
+                                <td>0 / 0</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-edit" title="Edit Ad"><span class="icon">&#9998;</span></button>
+                                    <button class="btn btn-secondary btn-toggle-status" title="Toggle Status"><span class="icon">&#128280;</span></button>
+                                    <button class="btn btn-delete" title="Delete Ad"><span class="icon">&#128465;</span></button>
+                                </td>
+                            </tr>
+                            <!-- Add more ad rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination ads-pagination">
+                    <button class="btn btn-secondary" disabled>&laquo; Previous</button>
+                    <span>Page 1 of 2</span>
+                    <button class="btn btn-secondary">Next &raquo;</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

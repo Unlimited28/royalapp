@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Royal Ambassadors</title>
+  <link rel="stylesheet" href="styles/login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="assets/logo.png" alt="Logo" class="logo"/>
+        <h2>Royal Ambassadors of Nigeria</h2>
+        <p class="subtext">OGUN BAPTIST CONFERENCE</p>
+      </div>
+
+      <form action="dashboard.html" method="POST" class="login-form">
+        <div class="form-group">
+          <label for="email">Email or Username</label>
+          <input type="text" id="email" name="email" placeholder="Enter your email or username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-login">Log In</button>
+        </div>
+
+        <div class="form-footer">
+          <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

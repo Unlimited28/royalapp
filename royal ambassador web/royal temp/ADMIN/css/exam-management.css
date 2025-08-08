@@ -1,0 +1,230 @@
+/* Inherits common styles from dashboard.css */
+
+/* Page-specific styles for Exam Management */
+
+.toolbar { /* Reusing toolbar style from user-management or dashboard.css if generic enough */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.toolbar .search-input { /* Assuming .search-input is defined in dashboard.css or user-management.css */
+    width: 320px;
+}
+
+.toolbar .btn-primary .icon {
+    margin-right: 8px;
+}
+
+/* Exam Card Specific Styles */
+/* .card-grid-container is defined in dashboard.css */
+
+.exam-card {
+    /* .card styles are inherited from dashboard.css */
+    position: relative; /* For absolute positioning of status badge */
+}
+
+.exam-card .card-content {
+    padding-top: 40px; /* Space for the status badge */
+}
+
+.exam-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff; /* Default text color, can be overridden by specific status */
+    z-index: 1; /* Ensure it's above other card content if overlapping */
+}
+
+/* Specific status colors - reusing .status-badge styles from dashboard.css if they match */
+.exam-status.status-active {
+    background-color: #28a745; /* Green */
+    color: #fff;
+}
+.exam-status.status-pending, .exam-status.status-upcoming { /* Added upcoming */
+    background-color: #ffc107; /* Yellow */
+    color: #333; /* Dark text for yellow background */
+}
+.exam-status.status-inactive, .exam-status.status-closed { /* Added closed */
+    background-color: #6c757d; /* Grey */
+    color: #fff;
+}
+.exam-status.status-draft { /* Added draft */
+    background-color: #17a2b8; /* Teal / Info */
+    color: #fff;
+}
+
+
+.exam-card .card-title {
+    /* Inherits from .card-title in dashboard.css */
+    /* Add specific overrides if needed */
+    margin-bottom: 8px;
+}
+
+.exam-card .card-meta {
+    /* Inherits from .card-meta in dashboard.css */
+    font-size: 0.8em; /* Slightly smaller for exam meta */
+    margin-bottom: 12px;
+}
+
+.exam-card .card-description {
+    /* Inherits from .card-description in dashboard.css */
+    font-size: 0.9em; /* Slightly smaller for exam description */
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.exam-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 15px; /* Space before actions */
+}
+.exam-stats div {
+    text-align: center;
+    font-size: 0.85em;
+    color: #555;
+}
+.exam-stats div span {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    color: #777;
+}
+.exam-stats div strong {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #001f3f; /* Navy Blue */
+}
+
+
+.exam-card .card-actions {
+    /* Inherits from .card-actions in dashboard.css */
+    /* Add specific overrides if needed, e.g., more space for exam buttons */
+    gap: 8px; /* Slightly smaller gap for more buttons */
+}
+
+.exam-card .card-actions .btn .icon {
+    margin-right: 6px;
+}
+.exam-card .card-actions .btn-delete .icon { /* For icon-only delete button */
+    margin-right: 0; 
+}
+
+
+/* Pagination for exams - reusing .pagination from user-management.css */
+.exam-pagination {
+    /* Styles are inherited if .pagination class is used. Add overrides if needed. */
+}
+
+
+/* Modal specific styles for exam form */
+/* .modal, .modal-dialog, .modal-content, etc. are defined in user-management.css or dashboard.css */
+/* We can add specific overrides if the exam modal needs to be different */
+
+#examModal .modal-dialog {
+    max-width: 650px; /* Slightly wider modal for exam form */
+}
+
+#examForm .form-row { /* Simple row for side-by-side inputs */
+    display: flex;
+    gap: 20px; /* Space between columns */
+    margin-bottom: 15px; /* Consistent with form-group margin */
+}
+#examForm .form-row .form-group {
+    flex: 1; /* Each group takes equal space */
+    margin-bottom: 0; /* Remove bottom margin as row handles it */
+}
+#examForm .form-row .form-group.col-md-6 { /* Mimicking Bootstrap column */
+    /* flex: 0 0 50%; /* If specific sizing is needed and gap isn't enough */
+}
+
+
+/* Responsive adjustments for exam management page */
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    .toolbar .search-input {
+        width: 100%;
+    }
+    .toolbar .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+    /* Card grid columns will adjust based on .card-grid-container styles in dashboard.css */
+    /* Usually to 1 or 2 columns on tablet */
+
+    .exam-stats {
+        flex-wrap: wrap; /* Allow stats to wrap */
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .exam-stats div {
+        flex-basis: calc(50% - 10px); /* Two items per row in stats */
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .exam-card .card-content {
+        padding-top: 50px; /* More space if status badge is larger or text wraps */
+    }
+    .exam-status {
+        font-size: 0.7em;
+        padding: 5px 10px;
+    }
+    .exam-card .card-title {
+        font-size: 1.1em;
+    }
+    .exam-stats div {
+        flex-basis: 100%; /* Stack stats items vertically */
+        margin-bottom: 8px;
+    }
+    .exam-stats div:last-child {
+        margin-bottom: 0;
+    }
+    .exam-card .card-actions {
+        flex-direction: column; /* Stack action buttons */
+        gap: 10px;
+    }
+    .exam-card .card-actions .btn {
+        width: 100%;
+        box-sizing: border-box; /* Ensure padding doesn't break layout */
+        text-align: center;
+    }
+    #examForm .form-row {
+        flex-direction: column; /* Stack form row inputs */
+        gap: 0; /* Remove gap, rely on form-group margin */
+    }
+    #examForm .form-row .form-group {
+        margin-bottom: 15px; /* Add back form-group margin */
+    }
+}
+```
+
+This CSS file for exam management includes:
+- Styles for the toolbar (reusing existing classes but showing how icons could be added).
+- Specific styling for the exam cards, including an absolutely positioned status badge, layout for exam metadata, a simple stats section within the card, and adjustments for action buttons.
+- Placeholder for pagination (assuming it reuses the `.pagination` styles from `user-management.css` or `dashboard.css`).
+- Specific adjustments for the exam creation/edit modal, such as making it slightly wider and providing basic styling for a form row with side-by-side inputs.
+- Responsive adjustments for tablets and mobile screens, focusing on the toolbar, card layout, and the new `exam-stats` section.
+
+The structure relies heavily on the common styles defined in `dashboard.css` for cards, buttons, forms, and modals, only adding specific overrides or new styles where needed for the exam management page. The HTML for the modal is included in `exam-management.html` as a non-functional structural placeholder.

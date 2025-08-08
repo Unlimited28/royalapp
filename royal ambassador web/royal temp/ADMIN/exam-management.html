@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Management - Royal Ambassadors Admin</title>
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="css/exam-management.css"> <!-- Page-specific styles -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="assest/img/logo.png" alt="RAN Logo" class="sidebar-logo">
+            <h3>Admin Panel</h3>
+            <p>Royal Ambassadors Ogun baptist conference</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><span class="icon">&#128200;</span> Dashboard</a></li>
+                <li><a href="user-management.html"><span class="icon">&#128101;</span> User Management</a></li>
+                <li><a href="exam-management.html" class="active"><span class="icon">&#128221;</span> Exam Management</a></li>
+                <li><a href="voucher-management.html"><span class="icon">&#127915;</span> Voucher Management</a></li>
+                <li><a href="blog-management.html"><span class="icon">&#128226;</span> Blog Management</a></li>
+                <li><a href="ads-management.html"><span class="icon">&#128227;</span> Ads & Promotions</a></li>
+                <li><a href="notification-management.html"><span class="icon">&#128276;</span> Notifications</a></li>
+                <li><a href="settings.html"><span class="icon">&#9881;</span> Settings</a></li>
+                <li><a href="../login.html" class="logout-link"><span class="icon">&#128682;</span> Logout</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2023 RAN Ogun</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Exam Management</h1>
+                <p>Manage all exams and assessments.</p>
+            </div>
+            <div class="header-user-info">
+                <img src="assest/img/new8.jpg" alt="Admin Avatar" class="admin-avatar">
+                <span>Admin Name</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="toolbar">
+                <input type="text" placeholder="Search exams by title..." class="search-input">
+                <a href="exam-questions.html" class="btn btn-primary" id="create-new-exam-btn">
+  <span class="icon">&#10010;</span> Create New Exam
+</a>
+
+                </button>
+            </div>
+
+            <div class="card-grid-container" id="exam-list">
+                <!-- Exam Card Example 1 -->
+                <div class="card exam-card">
+                    <div class="card-content">
+                        <div class="exam-status status-active">Active</div>
+                        <h3 class="card-title">Stage 1 Advancement Exam</h3>
+                        <p class="card-meta">Created: 2023-08-15 | Questions: 50 | Duration: 60 mins</p>
+                        <p class="card-description">
+                            This exam covers the foundational knowledge required for Stage 1 candidates. 
+                            Focuses on history and basic principles.
+                        </p>
+                        <div class="exam-stats">
+                            <div><span>Participants</span><strong>120</strong></div>
+                            <div><span>Avg. Score</span><strong>75%</strong></div>
+                            <div><span>Pass Rate</span><strong>80%</strong></div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary btn-view"><span class="icon">&#128065;</span> View Details</a>
+                        <a href="#" class="btn btn-edit"><span class="icon">&#9998;</span> Edit</a>
+                        <a href="#" class="btn btn-assign"><span class="icon">&#128101;</span> Assign Users</a>
+                        <a href="#" class="btn btn-delete" title="Delete Exam"><span class="icon">&#128465;</span></a>
+                    </div>
+                </div>
+
+                <!-- Exam Card Example 2 -->
+                <div class="card exam-card">
+                    <div class="card-content">
+                        <div class="exam-status status-pending">Upcoming</div>
+                        <h3 class="card-title">Leadership Training Assessment</h3>
+                        <p class="card-meta">Scheduled: 2023-11-01 | Questions: 30 | Duration: 45 mins</p>
+                        <p class="card-description">
+                            Assessment for participants of the recent leadership training workshop.
+                        </p>
+                         <div class="exam-stats">
+                            <div><span>Registered</span><strong>45</strong></div>
+                            <div><span>Starts In</span><strong>15 Days</strong></div>
+                            <div><span>Status</span><strong>Draft</strong></div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary btn-view"><span class="icon">&#128065;</span> View Details</a>
+                        <a href="#" class="btn btn-edit"><span class="icon">&#9998;</span> Edit</a>
+                        <a href="#" class="btn btn-assign"><span class="icon">&#128101;</span> Assign Users</a>
+                        <a href="#" class="btn btn-delete" title="Delete Exam"><span class="icon">&#128465;</span></a>
+                    </div>
+                </div>
+                
+                <!-- Exam Card Example 3 -->
+                <div class="card exam-card">
+                    <div class="card-content">
+                        <div class="exam-status status-inactive">Closed</div>
+                        <h3 class="card-title">Annual Conference Quiz</h3>
+                        <p class="card-meta">Conducted: 2023-06-20 | Questions: 25 | Duration: 30 mins</p>
+                        <p class="card-description">
+                            A fun quiz held during the annual conference, results are archived.
+                        </p>
+                        <div class="exam-stats">
+                            <div><span>Participants</span><strong>250</strong></div>
+                            <div><span>Avg. Score</span><strong>88%</strong></div>
+                            <div><span>Status</span><strong>Archived</strong></div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary btn-view"><span class="icon">&#128065;</span> View Results</a>
+                        <a href="#" class="btn btn-delete" title="Archive Exam"><span class="icon">&#128450;</span></a>
+                    </div>
+                </div>
+                <!-- Add more exam cards as placeholders -->
+            </div>
+            <div class="pagination exam-pagination">
+                 <!-- Pagination will be similar to user-management -->
+                <button class="btn btn-secondary" disabled>&laquo; Previous</button>
+                <span>Page 1 of 5</span>
+                <button class="btn btn-secondary">Next &raquo;</button>
+            </div>
+        </main>
+    </div>
+
+   
+</body>
+</html>

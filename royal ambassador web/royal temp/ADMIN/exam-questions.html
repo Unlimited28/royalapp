@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Exam - Questions Builder</title>
+  <link rel="stylesheet" href="css/exam-question.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="exam-header">
+      <img src="assest/img/logo.png" alt="RAN Logo" class="logo"/>
+      <h1>Create Exam Questions</h1>
+      <p>Fill in your exam details and manually add your questions.</p>
+    </header>
+
+    <section class="exam-details">
+      <h2>Exam Details</h2>
+      <form class="exam-info-form">
+        <input type="text" placeholder="Exam Title" required />
+        <textarea placeholder="Exam Description" rows="3" required></textarea>
+        <input type="number" placeholder="Duration (minutes)" min="1" required />
+      </form>
+    </section>
+
+    <section class="question-form-section">
+      <h2>Add a Question</h2>
+      <form class="question-form">
+        <textarea placeholder="Enter question text..." rows="3" required></textarea>
+
+        <div class="option-group">
+          <input type="text" placeholder="Option A" required />
+          <label><input type="checkbox" name="correct"> Correct</label>
+        </div>
+        <div class="option-group">
+          <input type="text" placeholder="Option B" required />
+          <label><input type="checkbox" name="correct"> Correct</label>
+        </div>
+        <div class="option-group">
+          <input type="text" placeholder="Option C" required />
+          <label><input type="checkbox" name="correct"> Correct</label>
+        </div>
+        <div class="option-group">
+          <input type="text" placeholder="Option D" required />
+          <label><input type="checkbox" name="correct"> Correct</label>
+        </div>
+
+        <button type="submit" class="add-question-btn">➕ Add Question</button>
+      </form>
+    </section>
+
+    <section class="added-questions">
+      <h2>Preview of Added Questions</h2>
+      <div class="question-list">
+        <!-- Placeholder for JS or PHP logic -->
+        <p>No questions added yet.</p>
+      </div>
+    </section>
+
+    <div class="publish-btn-wrapper">
+      <button class="publish-btn">✅ Publish Exam</button>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7fc; /* Light blue-grey background for the main area */
+    display: flex;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 260px;
+    background-color: #001f3f; /* Navy Blue */
+    color: #ffffff; /* White */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #003366; /* Darker navy for separation */
+}
+
+.sidebar-logo {
+    width: 60px;
+    height: 60px;
+    background-color: #FFD700; /* Gold for placeholder */
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: inline-block;
+    /* Add actual image styling here if needed */
+}
+
+.sidebar-header h3 {
+    margin: 5px 0;
+    font-size: 1.4em;
+    color: #FFD700; /* Gold */
+}
+
+.sidebar-header p {
+    font-size: 0.9em;
+    color: #ccc;
+    margin: 0;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    overflow-y: auto; /* For many links */
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav ul li a {
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease;
+}
+
+.sidebar-nav ul li a .icon {
+    margin-right: 12px;
+    font-size: 1.2em; /* Adjust icon size */
+    width: 20px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #003366; /* Darker navy for hover */
+    color: #FFD700; /* Gold */
+    border-left: 3px solid #FFD700; /* Gold */
+}
+
+.sidebar-nav ul li a.active {
+    background-color: #002b50; /* Slightly different navy for active */
+    color: #FFD700; /* Gold */
+    font-weight: 600;
+    border-left: 3px solid #FFD700; /* Gold */
+}
+
+.sidebar-nav ul li a.logout-link:hover {
+    background-color: #c00000; /* Reddish for logout hover */
+    color: #ffffff;
+    border-left-color: #c00000;
+}
+
+.sidebar-footer {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 0.8em;
+    border-top: 1px solid #003366; /* Darker navy for separation */
+    color: #aaa;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 260px; /* Same as sidebar width */
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure it takes full viewport height */
+    overflow-y: auto; /* Allow content to scroll independently */
+}
+
+/* Header Styles */
+.header {
+    background-color: #ffffff; /* White */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #e0e0e0;
+    height: 70px; /* Fixed header height */
+    box-sizing: border-box;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #001f3f; /* Navy Blue */
+}
+.header-title p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.header-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #001f3f; /* Navy for placeholder */
+    border: 2px solid #FFD700; /* Gold border */
+}
+
+.header-user-info span {
+    font-weight: 600;
+    color: #001f3f; /* Navy Blue */
+}
+
+/* Content Area Styles */
+.content-area {
+    padding: 30px;
+    flex-grow: 1; /* Takes remaining space */
+    overflow-y: auto; /* If content within content-area itself needs scrolling */
+}
+
+.content-area h2 {
+    color: #001f3f; /* Navy Blue */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #FFD700; /* Gold accent */
+    padding-bottom: 10px;
+}
+
+/* Stats Overview (Dashboard Specific) */
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: #ffffff; /* White */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+    font-size: 2.5em; /* Large icons */
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 20px;
+    color: #fff; /* White icon color */
+}
+.stat-icon.users { background-color: #007bff; } /* Example colors */
+.stat-icon.exams { background-color: #28a745; }
+.stat-icon.blogs { background-color: #ffc107; }
+.stat-icon.vouchers { background-color: #17a2b8; }
+
+
+.stat-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #001f3f; /* Navy Blue */
+}
+
+.stat-info p {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Quick Actions (Dashboard Specific) */
+.quick-actions {
+    margin-top: 30px;
+}
+.actions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.action-button {
+    background-color: #001f3f; /* Navy Blue */
+    color: #ffffff; /* White */
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block; /* Ensure proper padding and margin */
+}
+.action-button:hover {
+    background-color: #FFD700; /* Gold */
+    color: #001f3f; /* Navy Blue text on gold hover */
+}
+
+
+/* Common Table Styles (will be used by other pages) */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-radius: 8px;
+    overflow: hidden; /* For border-radius on table */
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table thead th {
+    background-color: #001f3f; /* Navy Blue */
+    color: #ffffff; /* White */
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f4f7fc; /* Light hover for rows */
+}
+
+.data-table .action-buttons button, .data-table .action-buttons a {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: #ffffff;
+}
+.data-table .action-buttons .btn-edit { background-color: #0056b3; /* Darker Blue for edit */}
+.data-table .action-buttons .btn-edit:hover { background-color: #004085; }
+.data-table .action-buttons .btn-delete { background-color: #dc3545; /* Red for delete */}
+.data-table .action-buttons .btn-delete:hover { background-color: #c82333; }
+.data-table .action-buttons .btn-assign { background-color: #28a745; /* Green for assign */}
+.data-table .action-buttons .btn-assign:hover { background-color: #218838; }
+.data-table .action-buttons .btn-view { background-color: #17a2b8; /* Teal for view */}
+.data-table .action-buttons .btn-view:hover { background-color: #138496; }
+
+
+/* Common Form Styles (will be used by other pages) */
+.form-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #001f3f;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #001f3f;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.25);
+}
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.form-button {
+    background-color: #001f3f; /* Navy Blue */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.form-button:hover {
+    background-color: #FFD700; /* Gold */
+    color: #001f3f; /* Navy Blue text */
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) { /* Tablet and smaller desktops */
+    .stats-overview {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .header-title h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 768px) { /* Tablet */
+    .sidebar {
+        width: 220px;
+    }
+    .main-content {
+        margin-left: 220px;
+    }
+    .header {
+        padding: 15px 20px;
+    }
+    .content-area {
+        padding: 20px;
+    }
+    .stats-overview {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablets */
+    }
+    .header-title p {
+        display: none; /* Hide subtitle on smaller screens for space */
+    }
+    .admin-avatar {
+        width: 35px;
+        height: 35px;
+    }
+    .header-user-info span {
+        display: none; /* Optionally hide admin name text */
+    }
+}
+
+@media (max-width: 600px) { /* Mobile - Initial plan was desktop/tablet, but good to consider */
+    .sidebar {
+        /* Example: transform to a hidden sidebar or top bar */
+        /* For now, let's just make it narrower or it could be toggled */
+        position: fixed;
+        left: -220px; /* Hide by default */
+        /* Add JavaScript later for a toggle button if this approach is used */
+        /* Or, a simpler approach: */
+        /* width: 100%; height: auto; position: static; */
+    }
+    .main-content {
+        margin-left: 0; /* Full width if sidebar is hidden or on top */
+    }
+    /* If sidebar is to be toggled, a class like .sidebar-open would bring it back */
+    /* body.sidebar-open .sidebar { left: 0; } */
+
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    .header-title {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .header-user-info {
+        margin-top: 5px;
+    }
+    .stats-overview {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+    .actions-container {
+        flex-direction: column;
+    }
+    .action-button {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .data-table {
+        font-size: 0.9em; /* Smaller font for tables on mobile */
+    }
+    .data-table th, .data-table td {
+        padding: 8px 10px;
+    }
+    /* For very small screens, tables might need a horizontal scroll or card display */
+    .table-responsive-wrapper { /* Wrap tables in this div */
+        overflow-x: auto;
+    }
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+
+/* Card styles (for blog, exams, etc.) */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-placeholder {
+    height: 180px;
+    background-color: #e0e0e0; /* Placeholder color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 1.2em;
+}
+.card-image-placeholder.small {
+    height: 100px; /* For smaller cards if needed */
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.3em;
+    color: #001f3f; /* Navy Blue */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px;
+}
+
+.card-actions .btn-edit, .card-actions .btn-delete, .card-actions .btn-assign, .card-actions .btn-view {
+    padding: 8px 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+/* Button colors are defined in .data-table .action-buttons, reuse them or make them more generic */
+/* .btn-edit { background-color: #0056b3; } .btn-edit:hover { background-color: #004085; } */
+/* .btn-delete { background-color: #dc3545; } .btn-delete:hover { background-color: #c82333; } */
+
+/* Status indicators */
+.status {
+    padding: 4px 8px;
+    border-radius: 12px; /* Pill shape */
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.status-active, .status-used {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+}
+.status-inactive, .status-unused {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+}
+.status-pending {
+    background-color: #fff3cd; /* Light yellow */
+    color: #856404; /* Dark yellow */
+}
+
+/* Ensure button styles are applied correctly for different contexts */
+.btn {
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: none; /* Assuming solid background buttons */
+    color: #ffffff; /* Default text color for buttons */
+}
+
+.btn-primary {
+    background-color: #001f3f; /* Navy Blue */
+}
+.btn-primary:hover {
+    background-color: #FFD700; /* Gold */
+    color: #001f3f; /* Navy Blue text */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Grey */
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-success { background-color: #28a745; }
+.btn-success:hover { background-color: #218838; }
+
+.btn-danger { background-color: #dc3545; }
+.btn-danger:hover { background-color: #c82333; }
+
+.btn-warning { background-color: #ffc107; color: #212529;}
+.btn-warning:hover { background-color: #e0a800; }
+
+.btn-info { background-color: #17a2b8; }
+.btn-info:hover { background-color: #138496; }
+
+/* Adjustments for mobile sidebar toggle if we were to implement JS toggle */
+/*
+.sidebar-toggle-button {
+    display: none; // Shown by media query for small screens
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001; // Above sidebar
+    background: #001f3f;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .sidebar-toggle-button {
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .main-content.sidebar-open {
+        // Optional: Add an overlay or dim the main content
+    }
+}
+*/
+
+/* Ensure icons in sidebar are consistently sized and aligned */
+.sidebar-nav ul li a .icon {
+    display: inline-block; /* Helps with alignment and width */
+    width: 24px; /* Consistent width for icons */
+    text-align: center; /* Center icon within its block */
+}
+
+/* Final check for gold accents */
+/* Ensure gold is #FFD700 */
+/* Hover states for links and buttons, active states, borders etc. */
+/* Example:
+.some-element:hover { color: #FFD700; }
+.active-element { border-color: #FFD700; }
+*/
+```
+
+**Note on Responsiveness for Mobile (max-width: 600px):**
+
+The current CSS for `max-width: 600px` hides the sidebar by default (`left: -220px;`). To make it functional (e.g., toggled by a button), JavaScript would be required to add/remove an `.open` class to the sidebar. Since this task is HTML/CSS only, a hamburger menu button and its JS functionality are not implemented.
+
+For a pure CSS approach without JS for mobile, you might consider:
+1.  Making the sidebar a top bar.
+2.  Reducing its width significantly and always showing it.
+3.  Using checkbox hack for a toggle (more complex CSS).
+
+Given the constraints, the current setup will make the sidebar disappear off-screen on mobile. If a visible mobile navigation is critical without JS, the CSS for `max-width: 600px` for `.sidebar` and `.main-content` would need to be redesigned (e.g., static positioning, full width).
+
+For now, the focus is on desktop and tablet responsiveness as primarily requested. The mobile styles provide a starting point.
+
+I've also added more detailed styling for dashboard cards and common elements like tables and forms that will be used in subsequent pages.
