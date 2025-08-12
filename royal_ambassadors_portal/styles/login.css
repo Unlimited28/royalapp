@@ -12,6 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 20px;
 }
 
 .login-container {
@@ -104,4 +105,11 @@ body {
 
 .form-footer a:hover {
   text-decoration: underline;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+    }
 }

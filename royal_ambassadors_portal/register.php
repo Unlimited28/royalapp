@@ -97,11 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($full_name_err) && empty($email_err) && empty($phone_err) && empty($church_err) && empty($association_err) && empty($age_err) && empty($rank_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (full_name, email, phone, church, association, age, rank, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (full_name, email, phone, church, association, age, rank, password, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("sssssiss", $param_full_name, $param_email, $param_phone, $param_church, $param_association, $param_age, $param_rank, $param_password);
+            $stmt->bind_param("sssssisss", $param_full_name, $param_email, $param_phone, $param_church, $param_association, $param_age, $param_rank, $param_password, $param_role);
 
             // Set parameters
             $param_full_name = $full_name;
@@ -112,9 +112,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_age = $age;
             $param_rank = $rank;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_role = 'ambassador';
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
+                // Get the ID of the new user
+                $new_user_id = $stmt->insert_id;
+
+                // Generate the unique ID
+                $unique_id = "OGBC/RA/" . str_pad($new_user_id, 4, '0', STR_PAD_LEFT);
+
+                // Update the user with the unique ID
+                $update_sql = "UPDATE users SET unique_id = ? WHERE id = ?";
+                if ($update_stmt = $mysqli->prepare($update_sql)) {
+                    $update_stmt->bind_param("si", $unique_id, $new_user_id);
+                    $update_stmt->execute();
+                    $update_stmt->close();
+                }
+
                 // Redirect to login page
                 header("location: login.php");
                 exit();
@@ -179,7 +194,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           <div class="form-group <?php echo (!empty($association_err)) ? 'has-error' : ''; ?>">
             <label>Association</label>
-            <input type="text" name="association" placeholder="e.g. Egba Association" value="<?php echo $association; ?>">
+            <select name="association">
+                <option value="">Select Association</option>
+                <option value="Agape Baptist Association" <?php if ($association == "Agape Baptist Association") echo "selected"; ?>>Agape Baptist Association</option>
+                <option value="Abeokuta North West Baptist Association" <?php if ($association == "Abeokuta North West Baptist Association") echo "selected"; ?>>Abeokuta North West Baptist Association</option>
+                <option value="Ketu Baptist Association" <?php if ($association == "Ketu Baptist Association") echo "selected"; ?>>Ketu Baptist Association</option>
+                <option value="Irepodun Oke-Yewa Baptist Association" <?php if ($association == "Irepodun Oke-Yewa Baptist Association") echo "selected"; ?>>Irepodun Oke-Yewa Baptist Association</option>
+                <option value="Zion Baptist Association" <?php if ($association == "Zion Baptist Association") echo "selected"; ?>>Zion Baptist Association</option>
+                <option value="Abeokuta South Baptist Association" <?php if ($association == "Abeokuta South Baptist Association") echo "selected"; ?>>Abeokuta South Baptist Association</option>
+                <option value="Ijebu North East Baptist Association" <?php if ($association == "Ijebu North East Baptist Association") echo "selected"; ?>>Ijebu North East Baptist Association</option>
+                <option value="Great Grace Baptist Association" <?php if ($association == "Great Grace Baptist Association") echo "selected"; ?>>Great Grace Baptist Association</option>
+                <option value="Abeokuta East Baptist Association" <?php if ($association == "Abeokuta East Baptist Association") echo "selected"; ?>>Abeokuta East Baptist Association</option>
+                <option value="Upper Room Baptist Association" <?php if ($association == "Upper Room Baptist Association") echo "selected"; ?>>Upper Room Baptist Association</option>
+                <option value="Ijebu North Baptist Association" <?php if ($association == "Ijebu North Baptist Association") echo "selected"; ?>>Ijebu North Baptist Association</option>
+                <option value="Abeokuta North-East Baptist Association" <?php if ($association == "Abeokuta North-East Baptist Association") echo "selected"; ?>>Abeokuta North-East Baptist Association</option>
+                <option value="Abeokuta West Baptist Association" <?php if ($association == "Abeokuta West Baptist Association") echo "selected"; ?>>Abeokuta West Baptist Association</option>
+                <option value="Bethel Baptist Association" <?php if ($association == "Bethel Baptist Association") echo "selected"; ?>>Bethel Baptist Association</option>
+                <option value="Ayetoro Baptist Association" <?php if ($association == "Ayetoro Baptist Association") echo "selected"; ?>>Ayetoro Baptist Association</option>
+                <option value="Dominion Baptist Association" <?php if ($association == "Dominion Baptist Association") echo "selected"; ?>>Dominion Baptist Association</option>
+                <option value="Iroyin Ayo Baptist Association" <?php if ($association == "Iroyin Ayo Baptist Association") echo "selected"; ?>>Iroyin Ayo Baptist Association</option>
+                <option value="Ijebu Central Baptist Association" <?php if ($association == "Ijebu Central Baptist Association") echo "selected"; ?>>Ijebu Central Baptist Association</option>
+                <option value="Rehoboth Baptist Association" <?php if ($association == "Rehoboth Baptist Association") echo "selected"; ?>>Rehoboth Baptist Association</option>
+                <option value="Christlife Baptist Association" <?php if ($association == "Christlife Baptist Association") echo "selected"; ?>>Christlife Baptist Association</option>
+                <option value="Ifeoluwa Baptist Association" <?php if ($association == "Ifeoluwa Baptist Association") echo "selected"; ?>>Ifeoluwa Baptist Association</option>
+                <option value="Ijebu Progressive Baptist Association" <?php if ($association == "Ijebu Progressive Baptist Association") echo "selected"; ?>>Ijebu Progressive Baptist Association</option>
+                <option value="Yewa Baptist Association" <?php if ($association == "Yewa Baptist Association") echo "selected"; ?>>Yewa Baptist Association</option>
+                <option value="Ayooluwa Baptist Association" <?php if ($association == "Ayooluwa Baptist Association") echo "selected"; ?>>Ayooluwa Baptist Association</option>
+                <option value="Macedonia Baptist Association" <?php if ($association == "Macedonia Baptist Association") echo "selected"; ?>>Macedonia Baptist Association</option>
+            </select>
             <span class="help-block"><?php echo $association_err; ?></span>
           </div>
 
@@ -192,17 +234,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="form-group <?php echo (!empty($rank_err)) ? 'has-error' : ''; ?>">
             <label>Rank</label>
             <select name="rank">
-              <option value="">Select Rank</option>
-              <option value="prospect" <?php if ($rank == "prospect") echo "selected"; ?>>prospect</option>
-              <option value="Assistant Intern" <?php if ($rank == "Assistant Intern") echo "selected"; ?>>Assistant Intern</option>
-              <option value="Intern" <?php if ($rank == "Intern") echo "selected"; ?>>Intern</option>
-              <option value="Senior Intern" <?php if ($rank == "Senior Intern") echo "selected"; ?>>Senior Intern</option>
-               <option value="Envoy" <?php if ($rank == "Envoy") echo "selected"; ?>>Envoy</option>
-                <option value="Special Envoy" <?php if ($rank == "Special Envoy") echo "selected"; ?>>Special Envoy</option>
+                <option value="">Select Rank</option>
+                <option value="Candidate" <?php if ($rank == "Candidate") echo "selected"; ?>>Candidate</option>
+                <option value="Assistant Intern" <?php if ($rank == "Assistant Intern") echo "selected"; ?>>Assistant Intern</option>
+                <option value="Intern" <?php if ($rank == "Intern") echo "selected"; ?>>Intern</option>
+                <option value="Senior Intern" <?php if ($rank == "Senior Intern") echo "selected"; ?>>Senior Intern</option>
+                <option value="Envoy" <?php if ($rank == "Envoy") echo "selected"; ?>>Envoy</option>
                 <option value="Senior Envoy" <?php if ($rank == "Senior Envoy") echo "selected"; ?>>Senior Envoy</option>
-                <option value="Dean" <?php if ($rank == "Dean") echo "selected"; ?>>Dean</option>
-              <option value="Ambassador" <?php if ($rank == "Ambassador") echo "selected"; ?>>Ambassador</option>
-               <option value="Ambassador extraordinary" <?php if ($rank == "Ambassador extraordinary") echo "selected"; ?>>Ambassador extraordinary</option>
+                <option value="Special Envoy" <?php if ($rank == "Special Envoy") echo "selected"; ?>>Special Envoy</option>
+                <option value="Ambassador" <?php if ($rank == "Ambassador") echo "selected"; ?>>Ambassador</option>
+                <option value="Ambassador Extraordinary" <?php if ($rank == "Ambassador Extraordinary") echo "selected"; ?>>Ambassador Extraordinary</option>
                 <option value="Ambassador Plenipotentiary" <?php if ($rank == "Ambassador Plenipotentiary") echo "selected"; ?>>Ambassador Plenipotentiary</option>
             </select>
             <span class="help-block"><?php echo $rank_err; ?></span>

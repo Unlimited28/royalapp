@@ -88,3 +88,14 @@ body {
   margin-top: 16px;
   font-size: 14px;
 }
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 480px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+}

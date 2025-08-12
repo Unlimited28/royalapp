@@ -1,12 +1,15 @@
 <?php
-// Initialize the session
 session_start();
+require_once "../includes/functions.php";
 
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+// Check login and role
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["role"] !== 'ambassador') {
     header("location: ../login.php");
     exit;
 }
+
+require_once "../includes/db_connect.php";
+$notification_count = get_unread_notification_count($mysqli, $_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,12 +31,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   </div>
   <ul class="nav">
     <li class="active"><a href="dashboard.php">Dashboard</a></li>
-    <li><a href="../exams.html">Exams</a></li>
-    <li><a href="../results.html">Results</a></li>
-    <li><a href="#">Resources & Materials</a></li>
+    <li><a href="../exams.php">Exams</a></li>
+    <li><a href="../results.php">Results</a></li>
+    <li><a href="../gallery.php">Gallery</a></li>
+    <li><a href="../blog.php">Blog</a></li>
+    <li><a href="#">Materials</a></li>
     <li><a href="#">Payments</a></li>
-    <li><a href="../contact.html">Support</a></li>
-    <li><a href="../blog.html">Blog</a></li>
+    <li><a href="../support.php">Support</a></li>
+    <li><a href="../about.php">About Us</a></li>
     <li><a href="../auth/logout.php">Log out</a></li>
   </ul>
 </aside>
@@ -56,7 +61,15 @@ if (isset($_SESSION['association'])) {
 }
 ?>
         </div>
-        <img src="../assets/director.jpg" alt="Profile Picture" class="avatar">
+        <div class="profile-actions">
+            <a href="../notifications.php" class="notification-bell">
+                <span>🔔</span>
+                <?php if ($notification_count > 0): ?>
+                    <span class="badge"><?php echo $notification_count; ?></span>
+                <?php endif; ?>
+            </a>
+            <img src="../assets/director.jpg" alt="Profile Picture" class="avatar">
+        </div>
       </div>
 
       <!-- Statistics -->

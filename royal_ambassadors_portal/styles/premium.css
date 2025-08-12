@@ -1,0 +1,74 @@
+/* Premium Styles for Royal Ambassadors Portal */
+
+/* General Body and Typography */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Marcellus', serif;
+    color: #001f3f; /* Navy Blue */
+    font-weight: 600;
+}
+
+/* Consistent Spacing for Sections */
+section {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #DAA520; /* Gold */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #c8940a;
+}
+
+.btn-secondary {
+    background-color: #001f3f; /* Navy Blue */
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #003366;
+}
+
+/* Form Styling Improvements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
